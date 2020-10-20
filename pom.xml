@@ -1,0 +1,117 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+
+  <groupId>com.linewell.microservice</groupId>
+  <artifactId>datadevs-guide-ui-common</artifactId>
+  <version>1.2.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <build>
+    <plugins>
+      <!--方案一  exec-maven-plugin 不自动安装node环境  -->
+      <!--            <plugin>-->
+      <!--                <groupId>org.codehaus.mojo</groupId>-->
+      <!--                <artifactId>exec-maven-plugin</artifactId>-->
+      <!--                <version>1.6.0</version>-->
+      <!--                <executions>-->
+      <!--                </executions>-->
+      <!--            </plugin>-->
+      <!--方案二  frontend-maven-plugin 自动安装node环境  -->
+      <plugin>
+        <groupId>com.github.eirslett</groupId>
+        <artifactId>frontend-maven-plugin</artifactId>
+        <version>1.8.0</version>
+        <executions>
+          <execution>
+            <!-- optional: you don't really need execution ids, but it looks nice in your build log. -->
+            <id>install node</id>
+            <goals>
+              <goal>install-node-and-npm</goal>
+            </goals>
+            <!-- optional: default phase is "generate-resources" -->
+            <phase>generate-resources</phase>
+          </execution>
+          <!-- 安装rimraf -->
+          <execution>
+            <id>npm install rimraf</id>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+            <phase>generate-resources</phase>
+            <configuration>
+              <arguments>install rimraf --registry=http://192.168.81.5:8081/repository/npm-all/</arguments>
+            </configuration>
+          </execution>
+          <!-- 执行清除(清除本项目和子项目所有相关文件) -->
+          <execution>
+            <id>npm run clean</id>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+            <phase>generate-resources</phase>
+            <configuration>
+              <arguments>run clean</arguments>
+            </configuration>
+          </execution>
+             <!-- 安装pnpm -->
+          <execution>
+            <id>install pnpm</id>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+            <phase>generate-resources</phase>
+            <configuration>
+              <arguments>install pnpm@5.9.0 --registry=http://192.168.81.5:8081/repository/npm-all/</arguments>
+            </configuration>
+          </execution>
+          <!-- 设置子工程 -->
+          <execution>
+            <id>npm run set-child</id>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+            <phase>generate-resources</phase>
+            <configuration>
+              <arguments>run set-child</arguments>
+            </configuration>
+          </execution>
+          <!-- 执行子工程install -->
+          <execution>
+            <id>npm run child-install</id>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+            <phase>generate-resources</phase>
+            <configuration>
+              <arguments>run child-install</arguments>
+            </configuration>
+          </execution>
+          <!-- 执行子工程build -->
+          <execution>
+            <id>npm run child-build</id>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+            <phase>generate-resources</phase>
+            <configuration>
+              <arguments>run child-build</arguments>
+            </configuration>
+          </execution>
+        </executions>
+        <configuration>
+          <!--          node版本-->
+          <nodeVersion>v10.16.3</nodeVersion>
+          <npmVersion>6.11.3</npmVersion>
+          <!--          <downloadRoot>http://npm.taobao.org/mirrors/node/</downloadRoot>-->
+          <!--          node安装路径-->
+          <installDirectory>${settings.localRepository}</installDirectory>
+          <!--          前端代码路径-->
+          <workingDirectory>${basedir}</workingDirectory>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

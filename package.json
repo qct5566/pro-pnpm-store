@@ -1,0 +1,25 @@
+{
+  "name": "data-platform-pnpm-store",
+  "version": "1.0.6",
+  "private": false,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "dev": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "npm-publish": "node utils/loginRepository.js && node utils/npmPublish.js",
+    "clean": "node utils/cleanCache.js",
+    "clean-package": "node utils/cleanPackage.js",
+    "set-child": "node utils/setChild.js",
+    "copy-child": "node utils/copyChild.js",
+    "child-install": "node utils/childInstall",
+    "child-build": "node utils/childBuild"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 10"
+  ],
+  "publishConfig": {
+    "registry": "http://192.168.81.5:8081/repository/npm-hossted/"
+  }
+}

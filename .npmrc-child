@@ -1,0 +1,7 @@
+
+store-dir= F:\data-platform-pnpm-store/pnpm/.pnpm-store # 指定依赖项的版本号信息存放位置
+virtual-store-dir= F:\data-platform-pnpm-store/pnpm/node_modules/.pnpm # 指定工程依赖项的缓存位置
+package-import-method= auto
+registry = http://192.168.81.5:8081/repository/npm-all 
+shamefully-hoist = true
+recursive-install = true

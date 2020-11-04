@@ -1,6 +1,6 @@
 const { deleteFolderByRimRaf, getAllChildPath } = require("./fileUtil");
 
-//删除特定的依赖包，防止内容更新版本号未更新
+//删除特定的依赖包，防止内容更新版本号未更新（试验，未启用）
 const delDepList = ['data-platform-common-frontend']
 delDepList.forEach(dep => {
     const cmd = `pnpm update ${e}`

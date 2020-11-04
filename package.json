@@ -12,7 +12,9 @@
     "set-child": "node utils/setChild.js",
     "copy-child": "node utils/copyChild.js",
     "child-install": "node utils/childInstall",
-    "child-build": "node utils/childBuild"
+    "child-build": "node utils/childBuild",
+    "pnpm-process": "node utils/pnpmProcess",
+    "skip":"node utils/skip"
   },
   "browserslist": [
     "> 1%",

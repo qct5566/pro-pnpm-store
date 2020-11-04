@@ -64,7 +64,7 @@ const beginDelete = () => {
 
   folder.forEach((file) => {
     //删除公共工程相关
-    const excludesCommon = ['.npmrc'] // ['.npmrc','.pnpm-store']
+    const excludesCommon = ['.npmrc', 'node_modules'] // ['.npmrc','.pnpm-store']
     if (!excludesCommon.includes(file.path)) {
       const currentobj = item(file, getPath.currentPath);
       deleteFolder(currentobj.path, `公共${currentobj.name}`);

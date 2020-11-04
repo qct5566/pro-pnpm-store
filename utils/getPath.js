@@ -2,10 +2,12 @@ const path = require("path");
 const fs = require("fs");
 const { record, writeRecord } = require('./record');
 
+const { config } = record
 
-const dirName = __dirname.split('\\')
+// const dirName = __dirname.split('\\')
 
-const root = `${dirName[0]}\\`
+const root = config.root
+
 //当前工程名称
 const currentProName = path.basename(path.join(__dirname, '..'));
 
@@ -13,14 +15,14 @@ const currentProName = path.basename(path.join(__dirname, '..'));
 const currentPath = path.join(__dirname, '..');
 
 //排除无需筛选的文件夹,可以排除不需要的工程和因为权限问题产生的无法打开的文件夹
-const excludePath = ['$RECYCLE.BIN', 'node_modules', '.pnpm-store', 'System Volume Information', 'data-platform-frontend']
+const excludePath = ['$RECYCLE.BIN', 'node_modules', '.pnpm-store', 'System Volume Information']
 
 //工程标识，本标识标识文件名中包含此字段
-const proFlag = 'data-platform'
+const proFlag = config.proFlag.pro
 
 //前端工程标识，在proFlag下的文件夹中寻找包含frontendProFlag标识的文件夹且该文件夹中必须包含frontendProFileFlag文件
-const frontendProFlag = 'frontend'
-const frontendProFileFlag = 'package.json'
+const frontendProFlag = config.proFlag.frontendPro
+const frontendProFileFlag = config.proFlag.frontendProFile
 
 
 const getAllDir = (dirPath) => {

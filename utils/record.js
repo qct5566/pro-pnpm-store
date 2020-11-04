@@ -24,7 +24,8 @@ const recordEndFlag = '// 子工程'
 const writeRecord = (key, value) => {
   return new Promise((resolve) => {
     const currentPath = path.join(__dirname, '../utils/record.js')
-    fs.readFile(currentPath, 'utf8', (data) => {
+    fs.readFile(currentPath, 'utf8', (err, data) => {
+      console.log('err', err)
       const recordObjStartIndex = data.indexOf('// recordStart')
       const recordObjEndIndex = data.indexOf('// recordEnd')
       const recordStr = data.substring(recordObjStartIndex, recordObjEndIndex).replace('// recordStart', '')

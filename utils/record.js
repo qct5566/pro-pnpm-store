@@ -59,7 +59,7 @@ const writeRecord = (key, value) => {
             newValue = valueStr.substring(1, valueStr.length - 1)
             break
         }
-        const newKeyValue = `${key}: ${typeof newValue === 'function' ? newValue() : newValue}${hasComma ? ',' : ''}`
+        const newKeyValue = `${key}: ${typeof newValue === 'function' ? newValue() : newValue }${hasComma ? ',' : ''}`
         const newData = data.replace(keyStr, newKeyValue)
         fs.writeFile(currentPath, newData, 'utf8', function (err) {
           resolve(record)

@@ -4,7 +4,7 @@ const fs = require('fs')
 const { spawn } = require('child_process')
 
 // 获取子工程配置，具体见./pnpmInstall
-const { record, writeRecord } = require('./record')
+const { record } = require('./record')
 const { config } = record
 const { pnpmStorePath } = config
 
@@ -74,7 +74,7 @@ const pnpmStoreShell = () => {
     spawnPromise(doClean, () => {
       console.log(`执行 npm run clean`)
       // clean时会清除currentproPath配置，这里需要根据config重新写入一次
-      writeRecord('childProPath', config.isAllBuild ? [] : [config.currentproPath])
+      // writeRecord('childProPath', config.isAllBuild ? [] : [config.currentproPath])
       spawnPromise(installPnpm, () => {
         console.log(`${hasPnpm ? '跳过' : '执行'} npm install pnpm@5.9.0`)
         spawnPromise(doSetChild, () => {

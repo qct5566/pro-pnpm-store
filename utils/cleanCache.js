@@ -1,6 +1,6 @@
 const fileUtil = require("./fileUtil");
 const getPath = require("./getPath");
-const { writeRecord } = require('./record')
+// const { writeRecord } = require('./record')
 
 const folder = [
   {
@@ -75,9 +75,6 @@ const beginDelete = () => {
       deleteFolder(obj.path, `子工程${obj.name}`);
     });
   });
-
-  //清空子工程路径标识
-  writeRecord('childProPath', [])
 };
 
 beginDelete();

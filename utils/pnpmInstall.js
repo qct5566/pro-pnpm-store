@@ -24,10 +24,14 @@ const pnpmStorePath = path.join(root, pnpmStoreName)
 
 /**
  * 打包相关配置,所有配置区分大小写
+ * 配置路径时分隔符使用/
  */
 const config = {
   isAllBuild: false, // 是否将所有相关工程打包,设置为true时，统一使用build中的配置，注意相关工程配置
   allConfig: { // 多工程打包相关配置,只有isAllBuild为true时，才会生效
+    childProPath:[
+      // 'F:/QCT/work/linewell/dgp/data-platform-basic-project/basic-frontend'
+    ],  // 子工程列表,必须使用系统完整路径 
     build: 'npm run build-copy', // package.json 中的打包命令,为空或false时统一不打包，会被customBuild中的配置覆盖
     proFlag: {
       // 统一打包构建时，配置工程名模糊匹配标识,想要切换规则，修改此处即可

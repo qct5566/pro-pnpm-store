@@ -18,11 +18,13 @@ const currentPath = path.join(__dirname, '..');
 const excludePath = ['$RECYCLE.BIN', 'node_modules', '.pnpm-store', 'System Volume Information']
 
 //工程标识，本标识标识文件名中包含此字段
-const proFlag = config.proFlag.pro
+const allConfig = config.allConfig || {}
+
+const proFlag = allConfig.proFlag.pro
 
 //前端工程标识，在proFlag下的文件夹中寻找包含frontendProFlag标识的文件夹且该文件夹中必须包含frontendProFileFlag文件
-const frontendProFlag = config.proFlag.frontendPro
-const frontendProFileFlag = config.proFlag.frontendProFile
+const frontendProFlag = allConfig.proFlag.frontendPro
+const frontendProFileFlag = allConfig.proFlag.frontendProFile
 
 
 const getAllDir = (dirPath) => {
@@ -71,7 +73,11 @@ const getAllDir = (dirPath) => {
 
 const startTime = new Date()
 console.log('获取业务工程路径中请等待')
-const childProPath = record.childProPath && record.childProPath.length ? record.childProPath : getAllDir(root)
+let childProPath = record.childProPath && record.childProPath.length ? record.childProPath : getAllDir(root)
+
+if(childProPath && childProPath.length){
+  childProPath = childProPath.map(e=>e.replace(/\\/g,'/'))
+}
 
 if (!record.childProPath || !record.childProPath.length) {
   writeRecord('childProPath', childProPath)
@@ -81,7 +87,7 @@ console.log("获取到的业务工程路径", childProPath)
 console.log(`获取业务工程路径成功,耗时${startTime - new Date()}`)
 
 //获取相对路径
-const relativeChildProPath = childProPath.map(e => path.relative(currentPath, e))
+const relativeChildProPath = childProPath.map(e => path.relative(currentPath, e).replace(/\\/g, '/'))
 
 module.exports = {
   root,

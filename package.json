@@ -1,27 +1,54 @@
 {
-  "name": "data-platform-pnpm-store",
-  "version": "1.0.7",
-  "private": false,
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "dev": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "npm-publish": "node utils/loginRepository.js && node utils/npmPublish.js",
-    "clean": "node utils/cleanCache.js",
-    "clean-package": "node utils/cleanPackage.js",
-    "set-child": "node utils/setChild.js",
-    "copy-child": "node utils/copyChild.js",
-    "child-install": "node utils/childInstall",
-    "child-build": "node utils/childBuild",
-    "pnpm-process": "node utils/pnpmProcess",
-    "skip":"node utils/skip"
+  "_from": "data-platform-pnpm-store",
+  "_id": "data-platform-pnpm-store@1.0.8",
+  "_inBundle": false,
+  "_integrity": "sha512-fZIk+CvgX6nxL4FU3fbr8AbDqKl9752RPRMrim79pjw0RedhVn+9sbG0aHzaunjHVRIuLjz54XOTk3QyTm/eYQ==",
+  "_location": "/data-platform-pnpm-store",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "data-platform-pnpm-store",
+    "name": "data-platform-pnpm-store",
+    "escapedName": "data-platform-pnpm-store",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
   },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "http://192.168.81.5:8081/repository/npm-all/data-platform-pnpm-store/-/data-platform-pnpm-store-1.0.8.tgz",
+  "_shasum": "491d7904554b8359e5bb96e1112f46e156b9d211",
+  "_spec": "data-platform-pnpm-store",
+  "_where": "F:\\data-platform-pnpm-store",
   "browserslist": [
     "> 1%",
     "last 2 versions",
     "not ie <= 10"
   ],
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "```\r 本工程用于pnpm安装打包各工程，支持独立打包也支持批量打包\r 独立打包时，打包工程会寻找根目录下是否有此工程，没有则创建一个新的该工程，并生成新的仓库\r 所以请将本工程置于根目录下，否则生成新的仓库会比较耗时\r 如果不考虑批量打包，在第一个子工程安装本仓库后，后续工程也都会直接使用本仓库\r ```",
+  "name": "data-platform-pnpm-store",
+  "private": false,
   "publishConfig": {
     "registry": "http://192.168.81.5:8081/repository/npm-hossted/"
-  }
+  },
+  "scripts": {
+    "build": "vue-cli-service build",
+    "child-build": "node utils/childBuild",
+    "child-install": "node utils/childInstall",
+    "clean": "node utils/cleanCache.js",
+    "clean-package": "node utils/cleanPackage.js",
+    "copy-child": "node utils/copyChild.js",
+    "dev": "vue-cli-service serve",
+    "npm-publish": "node utils/loginRepository.js && node utils/npmPublish.js",
+    "pnpm-process": "node utils/pnpmProcess",
+    "serve": "vue-cli-service serve",
+    "set-child": "node utils/setChild.js",
+    "skip": "node utils/skip"
+  },
+  "version": "1.0.8"
 }

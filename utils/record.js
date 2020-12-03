@@ -4,17 +4,8 @@ const path = require('path')
 
 const record = {
   // recordStart
-  childProPath: [], // 子工程路径
-  config: {
-    allConfig: {
-      proFlag: {
-        pro: 'data-platform',
-        frontendPro: 'frontend',
-        frontendProFile: 'package.json'
-      },
-      customBuild: []
-    }
-  } // 子工程配置
+  childProPath: ['F:/QCT/work/linewell/dgp/dgp-workflow/workflow/src/main/resources/templates/workflow-vue/workflow-frontend'],// 子工程路径
+  config: {"isAllBuild":false,"allConfig":{"childProPath":[],"build":"npm run build-copy","proFlag":{"pro":"data-platform","frontendPro":"frontend","frontendProFile":"package.json"},"customBuild":[{"pro":"data-platform-frontend/frontend","install":false,"build":false}]},"skipInstall":false,"skipBuild":true,"build":"npm run build-copy","root":"F:\\","currentproPath":"F:/QCT/work/linewell/dgp/dgp-workflow/workflow/src/main/resources/templates/workflow-vue/workflow-frontend","pnpmStorePath":"F:\\data-platform-pnpm-store","pnpmStoreName":"data-platform-pnpm-store","registry":"--registry=http://192.168.81.5:8081/repository/npm-all/","update":false,"cmd":"npm.cmd","startDate":"2020-12-03T02:52:14.248Z"}// 子工程配置
   // recordEnd
 }
 

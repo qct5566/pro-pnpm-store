@@ -188,7 +188,7 @@ downloadPnpmStore().then(startDate => {
     writeCuttentToPnpmStore('childProPath', config.isAllBuild ? [] : [config.currentproPath]).then(() => {
       const pnpmStoreCmd = { arg: ['run', 'pnpm-process'] }
       spawnPromise(pnpmStoreCmd, () => {
-        console.log('====== 开始执行仓库流程 ======')
+        // console.log('====== 开始执行仓库流程 ======')
       })
     })
   })

@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
 
-  <groupId>com.linewell.microservice</groupId>
+  <groupId>com.microservice</groupId>
   <artifactId>datadevs-guide-ui-common</artifactId>
   <version>1.2.0-SNAPSHOT</version>
   <packaging>pom</packaging>

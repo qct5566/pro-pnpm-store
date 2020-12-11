@@ -30,7 +30,7 @@ const config = {
   isAllBuild: false, // 是否将所有相关工程打包,设置为true时，统一使用build中的配置，注意相关工程配置
   allConfig: { // 多工程打包相关配置,只有isAllBuild为true时，才会生效
     childProPath:[
-      // 'F:/QCT/work/linewell/dgp/data-platform-basic-project/basic-frontend'
+      // 'F:/QCT/work//dgp/data-platform-basic-project/basic-frontend'
     ],  // 子工程列表,必须使用系统完整路径 
     build: 'npm run build-copy', // package.json 中的打包命令,为空或false时统一不打包，会被customBuild中的配置覆盖
     proFlag: {

@@ -1,2 +1,2 @@
 packages:
-  - '../QCT/work/linewell/dgp/dgp-workflow/workflow/src/main/resources/templates/workflow-vue/workflow-frontend/'
+  - '../QCT/work/dgp/dgp-workflow/workflow/src/main/resources/templates/workflow-vue/workflow-frontend/'
